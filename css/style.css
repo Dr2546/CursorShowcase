@@ -1,0 +1,38 @@
+html,
+body {
+    height: 100%;
+    margin: 0
+}
+
+body {
+    display: grid;
+    place-items: center;
+    background: #0b1020;
+    color: #fff;
+    font: 16px system-ui
+}
+
+.c {
+    position: fixed;
+    top: -10px;
+    width: 8px;
+    height: 12px;
+    opacity: .9;
+    will-change: transform
+}
+
+.btn {
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 999px;
+    background: #22c55e;
+    color: #0b1020;
+    font-weight: 700;
+    cursor: pointer
+}
+
+@keyframes fall {
+    to {
+        transform: translate3d(var(--x), 100vh, 0) rotate(var(--r))
+    }
+}
