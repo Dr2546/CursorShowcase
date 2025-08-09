@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<meta charset="utf-8">
+<title>Confetti</title>
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0
+    }
+
+    body {
+        display: grid;
+        place-items: center;
+        background: #0b1020;
+        color: #fff;
+        font: 16px system-ui
+    }
+
+    .c {
+        position: fixed;
+        top: -10px;
+        width: 8px;
+        height: 12px;
+        opacity: .9;
+        will-change: transform
+    }
+
+    .btn {
+        padding: 12px 18px;
+        border: 0;
+        border-radius: 999px;
+        background: #22c55e;
+        color: #0b1020;
+        font-weight: 700;
+        cursor: pointer
+    }
+
+    @keyframes fall {
+        to {
+            transform: translate3d(var(--x), 100vh, 0) rotate(var(--r))
+        }
+    }
+</style>
+<div>
+    <h1>Click for confetti 🎉</h1><button class=btn id=b>Go</button>
+</div>
+<script>const colors = ['#ef4444', '#f59e0b', '#22c55e', '#3b82f6', '#a855f7']; function go(n = 200) { for (let i = 0; i < n; i++) { const d = document.createElement('div'); d.className = 'c'; d.style.background = colors[i % colors.length]; d.style.left = Math.random() * 100 + 'vw'; d.style.setProperty('--x', (Math.random() * 2 - 1) * 40 + 'vw'); d.style.setProperty('--r', (Math.random() * 720 - 360) + 'deg'); d.style.animation = 'fall ' + (5 + Math.random() * 3) + 's cubic-bezier(.15,.61,.41,.98) forwards'; document.body.appendChild(d); setTimeout(() => d.remove(), 9000) } } document.getElementById('b').onclick = () => go();</script>
